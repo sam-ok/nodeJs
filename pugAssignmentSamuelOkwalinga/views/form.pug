@@ -1,0 +1,89 @@
+meta(charset="utf-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+meta(http-equiv="x-ua-compatible", content="ie=edge")
+link(rel="stylesheet", href="./public/styling.css")
+title My Pug Assignment
+form.myForm(method="post", enctype="application/x-www-form-urlencoded", action="/form")
+  p
+    label
+      | Name
+
+      input(type="text", name="customer_name", required)
+  p
+    label
+      | Phone
+
+      input(type="tel", name="phone_number")
+  p
+    label
+      | Email
+
+      input(type="email", name="email_address")
+fieldset
+  legend Which taxi do you require?
+  p
+    label.choice
+      input(type="radio", name="taxi", required, value="car")
+      |  Car
+
+  p
+    label.choice
+      input(type="radio", name="taxi", required, value="van")
+      |  Van
+
+  p
+    label.choice
+      input(type="radio", name="taxi", required, value="tuktuk")
+      |  Tuk Tuk
+
+fieldset
+  legend Extras
+  p
+    label.choice
+      input(type="checkbox", name="extras", value="baby")
+      |  Baby Seat
+
+  p
+    label.choice
+      input(type="checkbox", name="extras", value="wheelchair")
+      | 
+Wheelchair Access
+
+  p
+    label.choice
+      input(type="checkbox", name="extras", value="tip")
+      |  Stock Tip
+
+p
+  label
+    | Pickup Date/Time
+
+    input(type="datetime-local", name="pickup_time", required)
+p
+  label
+    | Pickup Place
+
+    select#pickup_place(name="pickup_place")
+      option(value, selected) Select One
+      option(value="office") Taxi Office
+      option(value="town_hall") Town Hall
+      option(value="telepathy") We'll Guess!
+p
+  label
+    | Dropoff Place
+
+    select#destinations
+      option(value, selected) Select One
+      option(value="Airport") Airport
+      option(value="Beach") Beach
+      option(value="Fred Flinstone\'s House").
+        
+        Fred Flinstone's House
+        
+p
+  label
+    | Special Instructions
+
+    textarea(name="comments", maxlength="500")
+p
+  button Submit Booking
