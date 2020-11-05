@@ -1,0 +1,19 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Login  
+    form(method="POST" action='/')
+        div.form-row
+            div.col.form-group
+                label Name
+                input.form-control(name="name" id="name" type="text")
+        div.form-row
+            div.col.form-group
+                label Email:
+                input.form-control(type="email" name="email" id="email")
+        div.form-row
+            div.col.form-group
+                button.btn.btn-primary.btn-block Submit :-)
+        div.form-row
+            div.col.form-group
+                a(class='button', href='/register') Register

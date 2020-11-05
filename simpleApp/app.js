@@ -1,27 +1,51 @@
 const path = require("path");
-const express = require("express"); 
-const mongoose = require('mongoose'); 
-require('dotenv/config');
+const express = require("express");
+const mongoose = require('mongoose');
+require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
 
-
 const app = express();
 
-// connect mongoose using mongodb+srv://ekomens1:<password>@cluster0.mqp0h.mongodb.net/test;
-// mongoose.connect(process.env.MyDataBase, {
-//   useUnifiedTopology: true,
-//    useNewUrlParser: true 
-//   } );
+// Connecting to the local server
 
-// DATABASE=mongodb://localhost:27017/cohort5
-// We want to test if the mongoose connection is open or otherwise
-// mongoose.connection 
-// .on("open", () => { console.log("Mongoose connection open");
-//  }) 
-//  .on("error", err => { 
-//    console.log(`Connection error: ${err.message}`);
-//   });
+mongoose.connect(process.env.DATABASE, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+mongoose.connection
+  .on('open', () => {
+    console.log('Mongoose connection open');
+  })
+  .on('error', (err) => {
+    console.log(`Connection error: ${err.message}`);
+  });
+
+const registrationSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    trim: true,
+  },
+  email: {
+    type: String,
+    trim: true,
+  },
+});
+
+// if (errors.isEmpty()) {
+//   const registration = new Registration(req.body);
+//   registration.save()
+//     .then(() => { res.send('Thank you for your registration!'); })
+//     .catch((err) => {
+//       console.log(err);
+//       res.send('Sorry! Something went wrong.');
+//     });
+// } else {
+//   res.send('Sorry! Something went wrong.');
+// }
+
+
 
 // setting up pug
 app.set("view engine", "pug");
@@ -46,7 +70,7 @@ app.get("/form1", (req, res) => {
 });
 
 // Routing for positing
-app.post('/form1', (req, res)=>{
+app.post('/form1', (req, res) => {
   console.log(req.body);
   // significance of the end method. 
   /*why aren't we passing it with express and yet it is used on the http 
