@@ -2,10 +2,10 @@
   "name": "simpleapp",
   "version": "1.0.0",
   "description": "Simple node app",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "author": "Sam O",
   "license": "ISC",

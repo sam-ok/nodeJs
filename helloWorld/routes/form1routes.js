@@ -1,5 +1,5 @@
 const express = require('express');
-const form1Routes = express();
+const form1Routes = express.Router();;
 
   //Render pug
   form1Routes.get("/form1", (req, res) => {

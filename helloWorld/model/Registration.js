@@ -12,9 +12,6 @@ const registrationSchema = new mongoose.Schema({
         required: 'Please Enter User name' 
     },
     gender: String,
-    numbers: [{
-        type: String
-    }],
     country: String,
     city: String,
     password: {
