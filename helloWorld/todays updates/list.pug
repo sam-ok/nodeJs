@@ -1,0 +1,27 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title Welcome 
+    table.table
+        thead.thead-dark
+            tr
+                th Firstname
+                th Lastname
+                th Username
+                th Gender
+                th Country
+                th City
+                th 
+        tbody
+            if users.length
+            each user in users
+                tr
+                    td #{user.firstname}
+                    td #{user.lastname}
+                    td #{user.username}
+                    td #{user.gender}
+                    td #{user.lastname}
+                    td #{user.city}
+            else
+                p No registrations yet :(
+

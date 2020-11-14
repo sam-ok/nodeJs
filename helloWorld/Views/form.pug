@@ -21,6 +21,24 @@ block content
                 label.form-check.form-check-inline
                     input.form-check-input(type="radio" name="gender" value="male")
                     span.form-check-label Male 
+            div.col.form-group
+                label No_s:  &nbsp
+                label.form-check.form-check-inline 
+                    span.form-check-label one     &nbsp
+                    input.form-check-input(type="checkbox" checked name="numbers" value="one")
+                label.form-check.form-check-inline 
+                    span.form-check-label two   &nbsp
+                    input.form-check-input(type="checkbox" checked name="numbers" value="two")
+                label.form-check.form-check-inline 
+                    span.form-check-label three &nbsp
+                    input.form-check-input(type="checkbox" checked name="numbers" value="three")
+        div.form-row
+            div.col.form-group
+                label Role 
+                select.form-control(name="role")
+                    option(value="admin")  Admin
+                    option(value="farmer") Farmer
+                    option(value="public") Public
         div.form-row
             div.col.form-group
                 label Country 
@@ -38,3 +56,5 @@ block content
         div.form-row
             div.col.form-group
                 button.btn.btn-primary.btn-block Register
+        div.form-row
+            a(href='/login') Login

@@ -1,0 +1,31 @@
+extends layout
+block content
+	header.card-header
+		h4.card-title Welcome #{currentUser.firstname} , your current role is #{currentUser.role}
+	div.form-row
+		button(data-toggle="modal" data-target="#modal-send-message" data-record-type="user" class="btn1")
+			| show
+		#modal-send-message(class="modal fade")
+			div(class="modal-dialog")
+				div(class="modal-content")
+					div(class="modal-header")
+						div(class="form-block")
+							a(href="#" class="close-btn")
+							h2
+								span(class="icon")
+									i(class="feedback-your-coach-icon")
+								span(class="title") Herinnering sturen
+							div(class="text-left")
+								div(class="alert alert-success hide")
+					div(class="form-group")
+						div(class="form-group")
+							| {!! Form::label('to', 'Aan') !!}
+							p(class="static-form-control to-clients")
+						div(class="form-group")
+						div(class="form-group")
+							#mark_result_reminder_sent_option(class="form-group" style="display: none")
+								div(class="checkbox")
+									label
+						div(class="form-bottom")
+							button(type="button" class="btn btn-default" data-dismiss="modal") Annuleer
+							button(type="submit" form="form-send-message" class="btn btn-primary") Versturen
