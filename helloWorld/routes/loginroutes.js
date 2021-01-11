@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 router.post('/', passport.authenticate('local', {failureRedirect: '/login'}), (req,res) =>{
     req.session.user = req.user;
     const userRole = roles[req.user.role]
-    
+    console.log(req.body);
     if(userRole == 'admin')
         {
          res.redirect('/userlist');

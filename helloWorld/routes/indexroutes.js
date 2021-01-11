@@ -5,7 +5,7 @@ const Registration = require('../models/Registration')
 // specify what to do when user hit the '/'(home page) route/endpoint
 router.get('/', (req, res) => {
     res.render('form', { title: 'Registration form' })
-})
+});
 
 // save data to the database
 router.post('/', async (req, res) => {
@@ -23,8 +23,7 @@ router.post('/', async (req, res) => {
         res.status(400).send('Sorry! Something went wrong.')
         console.log(err)
     }
-})
-
+});
 
 // retrieve data from the database 
 router.get('/userlist', async (req, res) => {
@@ -56,7 +55,7 @@ router.post('/delete', async (req, res) => {
             console.log("Can't find session")
             res.redirect('/login')
         }
-})
+});
 
 router.get('/update/:id', async (req, res) => {
     if (req.session.user) {
@@ -70,7 +69,7 @@ router.get('/update/:id', async (req, res) => {
         console.log("Can't find session")
         res.redirect('/login')
     }
-})
+});
 
 router.post('/update', async (req, res) => {
 if (req.session.user) {
@@ -84,7 +83,7 @@ if (req.session.user) {
     console.log("Can't find session")
     res.redirect('/login')
 }   
-})
+});
 
 router.get('/farmerdash', async (req, res) => {
     if (req.session.user) {

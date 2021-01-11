@@ -2,7 +2,7 @@
 
 //dependencies
 const express = require('express')
-const bodyParser = require('body-parser') 
+const bodyParser = require('body-parser')
 const indexRoutes = require('./routes/indexroutes');
 const teachingRoutes = require('./routes/teachingroutes');
 const loginRoutes = require('./routes/loginroutes');
@@ -22,12 +22,12 @@ const passport = require('passport');
 const app = express();
 
 //db connection
- mongoose.connect(process.env.DATABASE, {
-     useNewUrlParser: true,
-     useUnifiedTopology: true,
-     useCreateIndex:true,
-     useFindAndModify:false
-   });
+mongoose.connect(process.env.DATABASE, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+});
 
 mongoose.connection
   .on('open', () => {
@@ -44,11 +44,11 @@ app.set('views', './views');
 // middleware settings
 //Simple request time logger for a specific route
 app.use((req, res, next) => {
-    console.log('A new request received at ' + Date.now());
-    next();
+  console.log('A new request received at ' + Date.now());
+  next();
 });
 
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(expressSession);
 app.use(passport.initialize());
 app.use(passport.session());
@@ -65,21 +65,22 @@ app.use('/login', loginRoutes);
 //logout
 app.post('/logout', (req, res) => {
   if (req.session) {
-      req.session.destroy((err)=> {
-          if (err) {
-              // failed to destroy session
-          } else {
-              return res.redirect('/login');
-          }
-      })
+    req.session.destroy((err) => {
+      if (err) {
+        // failed to destroy session
+      } else {
+        return res.redirect('/login');
+      }
+    })
   }
 })
 
 
-app.get('*',(req,res)=>{
-    res.send('error page')
+app.get('*', (req, res) => {
+  res.send('error page')
 })
+
 
 //server
 //created a server and have it listen on port 3000
-app.listen(3000, ()=> console.log('listening on port 3000'))
+app.listen(3000, () => console.log('listening on port 3000'))
